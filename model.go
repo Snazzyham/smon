@@ -41,7 +41,7 @@ func newModel(interval time.Duration, noDocker, noPorts bool) model {
 		interval:  interval,
 		noDocker:  noDocker,
 		noPorts:   noPorts,
-		sortBy:    SortByCPU,
+		sortBy:    SortByMem,
 		dockerMap: make(map[int32]string),
 	}
 }

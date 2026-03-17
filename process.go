@@ -2,6 +2,7 @@ package main
 
 import (
 	"path/filepath"
+	"runtime"
 
 	"github.com/shirou/gopsutil/v3/process"
 )
@@ -45,7 +46,7 @@ func collectAllProcesses() ([]ProcessInfo, error) {
 			info.Cmdline = cmdline
 		}
 		if cpu, err := p.CPUPercent(); err == nil {
-			info.CPUPercent = cpu
+			info.CPUPercent = cpu / float64(runtime.NumCPU())
 		}
 		if mem, err := p.MemoryInfo(); err == nil && mem != nil {
 			info.MemoryMB = float64(mem.RSS) / 1024 / 1024
