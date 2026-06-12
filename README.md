@@ -56,6 +56,10 @@ smon --no-ports       # disable Node.js port scanning
 
 Press `Space` on any row to expand a detail panel showing each individual PID, its CPU%, memory, and full command line — useful for identifying mystery processes.
 
+## Theming
+
+If `~/.config/themes/.current-theme` exists, smon reads `~/.config/themes/<name>.conf` and uses that palette for accent, secondary, selected-row, text, and success colors. If no current theme is set or the theme file is invalid, smon falls back to terminal ANSI colors.
+
 ## Process Grouping
 
 Processes are classified through a matcher pipeline (first match wins):
